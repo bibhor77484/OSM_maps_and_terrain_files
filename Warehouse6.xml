@@ -1,0 +1,190 @@
+<scene version="2.1.0">
+
+<!-- Defaults, these can be set via the command line: -Darg=value -->
+
+	<default name="spp" value="128"/>
+	<default name="resx" value="1920"/>
+	<default name="resy" value="1080"/>
+
+<!-- Camera and Rendering Parameters -->
+
+	<integrator type="path" id="elm__0" name="elm__0">
+		<integer name="max_depth" value="12"/>
+	</integrator>
+	<sensor type="perspective" id="zamera" name="zamera">
+		<string name="fov_axis" value="x"/>
+		<float name="fov" value="39.597755"/>
+		<float name="principal_point_offset_x" value="0.000000"/>
+		<float name="principal_point_offset_y" value="-0.000000"/>
+		<float name="near_clip" value="0.100000"/>
+		<float name="far_clip" value="1000.000000"/>
+		<transform name="to_world">
+			<rotate x="1" angle="89.99998884409983"/>
+			<rotate y="1" angle="-1.4204774496190274e-07"/>
+			<rotate z="1" angle="-153.56240544896633"/>
+			<translate value="7.387105 -13.889085 1.382815"/>
+		</transform>
+		<sampler type="independent" name="sampler">
+			<integer name="sample_count" value="$spp"/>
+		</sampler>
+		<film type="hdrfilm" name="film">
+			<integer name="width" value="$resx"/>
+			<integer name="height" value="$resy"/>
+		</film>
+	</sensor>
+
+<!-- Materials -->
+
+	<bsdf type="itu-radio-material" id="mat-metal">
+        <string name="type" value="metal"/>
+	</bsdf>
+	<bsdf type="itu-radio-material" id="mat-concrete">
+        <string name="type" value="concrete"/>
+	</bsdf>
+	<bsdf type="itu-radio-material" id="mat-ceiling_board">
+        <string name="type" value="ceiling_board"/>
+	</bsdf>
+	<bsdf type="itu-radio-material" id="mat-wood">
+        <string name="type" value="wood"/>
+	</bsdf>
+	<bsdf type="itu-radio-material" id="mat-plasterboard">
+        <string name="type" value="plasterboard"/>
+	</bsdf>
+	<bsdf type="itu-radio-material" id="mat-glass">
+        <string name="type" value="glass"/>
+	</bsdf>
+
+<!-- Emitters -->
+
+	<emitter type="constant" id="World" name="World">
+		<rgb value="5.000000 5.000000 5.000000" name="radiance"/>
+	</emitter>
+
+<!-- Shapes -->
+
+	<shape type="ply" id="mesh-02__dinding_depan" name="mesh-02__dinding_depan">
+		<string name="filename" value="meshes/02__dinding_depan.ply"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-04__besi_lis" name="mesh-04__besi_lis">
+		<string name="filename" value="meshes/04__besi_lis.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-03__dinding" name="mesh-03__dinding">
+		<string name="filename" value="meshes/03__dinding.ply"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-01__rangka" name="mesh-01__rangka">
+		<string name="filename" value="meshes/01__rangka.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-06__lantai" name="mesh-06__lantai">
+		<string name="filename" value="meshes/06__lantai.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-05__gerbang" name="mesh-05__gerbang">
+		<string name="filename" value="meshes/05__gerbang.ply"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-07__lemari" name="mesh-07__lemari">
+		<string name="filename" value="meshes/07__lemari.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-08__cat_garis" name="mesh-08__cat_garis">
+		<string name="filename" value="meshes/08__cat_garis.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-09__kardus" name="mesh-09__kardus">
+		<string name="filename" value="meshes/09__kardus.ply"/>
+		<ref id="mat-ceiling_board" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-10__bungkus" name="mesh-10__bungkus">
+		<string name="filename" value="meshes/10__bungkus.ply"/>
+		<ref id="mat-wood" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-11__bungkus_plastik" name="mesh-11__bungkus_plastik">
+		<string name="filename" value="meshes/11__bungkus_plastik.ply"/>
+		<ref id="mat-plasterboard" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-12__botol" name="mesh-12__botol">
+		<string name="filename" value="meshes/12__botol.ply"/>
+		<ref id="mat-plasterboard" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-13__gentong" name="mesh-13__gentong">
+		<string name="filename" value="meshes/13__gentong.ply"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-14__gas" name="mesh-14__gas">
+		<string name="filename" value="meshes/14__gas.ply"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-15__box_besi" name="mesh-15__box_besi">
+		<string name="filename" value="meshes/15__box_besi.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-16__kyu_2" name="mesh-16__kyu_2">
+		<string name="filename" value="meshes/16__kyu_2.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-wood" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-17__box_kayu" name="mesh-17__box_kayu">
+		<string name="filename" value="meshes/17__box_kayu.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-wood" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-18__ondo" name="mesh-18__ondo">
+		<string name="filename" value="meshes/18__ondo.ply"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-19__trafo" name="mesh-19__trafo">
+		<string name="filename" value="meshes/19__trafo.ply"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-20__saklar" name="mesh-20__saklar">
+		<string name="filename" value="meshes/20__saklar.ply"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-22__tangga" name="mesh-22__tangga">
+		<string name="filename" value="meshes/22__tangga.ply"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-21__lampu" name="mesh-21__lampu">
+		<string name="filename" value="meshes/21__lampu.ply"/>
+		<ref id="mat-glass" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-23__KLLNG" name="mesh-23__KLLNG">
+		<string name="filename" value="meshes/23__KLLNG.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-24__AC" name="mesh-24__AC">
+		<string name="filename" value="meshes/24__AC.ply"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-25__kabel" name="mesh-25__kabel">
+		<string name="filename" value="meshes/25__kabel.ply"/>
+		<ref id="mat-plasterboard" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-26__meja" name="mesh-26__meja">
+		<string name="filename" value="meshes/26__meja.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-wood" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-27__KERETA" name="mesh-27__KERETA">
+		<string name="filename" value="meshes/27__KERETA.ply"/>
+		<ref id="mat-metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="mesh-28__PEMADAM" name="mesh-28__PEMADAM">
+		<string name="filename" value="meshes/28__PEMADAM.ply"/>
+		<ref id="mat-glass" name="bsdf"/>
+	</shape>
+
+<!-- Volumes -->
+
+</scene>
