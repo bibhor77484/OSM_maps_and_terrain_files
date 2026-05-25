@@ -29,6 +29,9 @@
 	<bsdf type="itu-radio-material" id="mat-glass">
         <string name="type" value="glass"/>
 	</bsdf>
+	<bsdf type="itu-radio-material" id="mat-plywood">
+        <string name="type" value="plywood"/>
+	</bsdf>
 
 <!-- Emitters -->
 
@@ -98,6 +101,11 @@
 	<shape type="ply" id="elm__19" name="elm__19">
 		<string name="filename" value="meshes/28__PEMADAM.ply"/>
 		<ref id="mat-glass" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__21" name="elm__21">
+		<string name="filename" value="meshes/Cube.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-plywood" name="bsdf"/>
 	</shape>
 
 <!-- Volumes -->
